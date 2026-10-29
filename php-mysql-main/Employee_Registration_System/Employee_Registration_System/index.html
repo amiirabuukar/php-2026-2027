@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f3f6fa; margin: 0; padding: 30px; }
+        .container { max-width: 760px; margin: auto; background: white; padding: 25px; border-radius: 10px; }
+        h1 { text-align: center; color: #183b66; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        label { display: block; margin: 10px 0 6px; font-weight: bold; }
+        input, select { width: 100%; box-sizing: border-box; padding: 10px; border: 1px solid #b8c4d1; border-radius: 5px; }
+        .choice input { width: auto; }
+        .choice label { display: inline-block; font-weight: normal; margin-right: 15px; }
+        input[type="submit"], input[type="reset"] { width: auto; padding: 11px 18px; margin: 18px 8px 0 0; border: 0; border-radius: 5px; cursor: pointer; }
+        input[type="submit"] { background: #183b66; color: white; }
+        input[type="reset"] { background: #e1e7ee; }
+        @media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Employee Registration Form</h1>
+    <form action="process.php" method="post" enctype="multipart/form-data">
+        <div class="grid">
+            <div>
+                <label for="full_name">Employee Full Name</label>
+                <input id="full_name" type="text" name="full_name">
+            </div>
+            <div>
+                <label for="employee_id">Employee ID</label>
+                <input id="employee_id" type="text" name="employee_id">
+            </div>
+            <div class="choice">
+                <label>Gender</label>
+                <label><input type="radio" name="gender" value="Male"> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+            </div>
+            <div>
+                <label for="department">Department</label>
+                <select id="department" name="department">
+                    <option value="">-- Select department --</option>
+                    <option value="Human Resources">Human Resources</option>
+                    <option value="Finance">Finance</option>
+                    <option value="Information Technology">Information Technology</option>
+                    <option value="Administration">Administration</option>
+                </select>
+            </div>
+            <div class="choice">
+                <label>Employment Type</label>
+                <label><input type="radio" name="employment_type" value="Full-Time"> Full-Time</label>
+                <label><input type="radio" name="employment_type" value="Part-Time"> Part-Time</label>
+            </div>
+            <div>
+                <label for="basic_salary">Basic Salary ($)</label>
+                <input id="basic_salary" type="number" name="basic_salary" min="0.01" step="0.01">
+            </div>
+            <div>
+                <label for="allowance">Allowance ($)</label>
+                <input id="allowance" type="number" name="allowance" min="0" step="0.01" value="0">
+            </div>
+            <div>
+                <label for="deduction">Deduction ($)</label>
+                <input id="deduction" type="number" name="deduction" min="0" step="0.01" value="0">
+            </div>
+            <div>
+                <label for="years_service">Years of Service</label>
+                <input id="years_service" type="number" name="years_service" min="0" step="1" value="0">
+            </div>
+            <div>
+                <label for="employee_document">Employee Document</label>
+                <input id="employee_document" type="file" name="employee_document">
+            </div>
+        </div>
+        <input type="submit" name="submit" value="Register Employee">
+        <input type="reset" value="Clear Form">
+    </form>
+</div>
+</body>
+</html>
