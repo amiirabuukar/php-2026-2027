@@ -1,0 +1,23 @@
+<?php
+// Read all information from the file
+
+if (!empty($_FILES["stdimages"])) {
+    echo "File Name: " . $_FILES["stdimages"]["name"] . "<hr />";
+    echo "File Type: " . $_FILES["stdimages"]["type"] . "<hr />";
+    echo "File Size: " . $_FILES["stdimages"]["size"] . "<hr />";
+    echo "File Temp Path: " . $_FILES["stdimages"]["tmp_name"] . "<hr />";
+    
+    // move file from temp path to the final destination folder
+    $temp = $_FILES["stdimages"]["tmp_name"];
+    
+    // Renaming the file
+    $ext = explode(".", $_FILES["stdimages"]["name"]);
+    $ext = end($ext);
+
+    // Path-ka waxaa lagu beddelay fuaad abuukar:
+    $Destination = "C:/Users/fuaad abuukar/Documents/php-files/" . $_POST["filename"] . "." . $ext;
+
+    // Faylka u dhaqaaq meesha loo cayimay:
+    move_uploaded_file($temp, $Destination);
+}
+?>
